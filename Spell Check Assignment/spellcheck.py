@@ -31,7 +31,7 @@ def printMainMenu():
     print("3: Spell Check Alice in Wonderland (Linear Search)")
     print("4: Spell Check Alice in Wonderland (Binary Search)")
     print("5: Exit")
-    return int(input("Enter menu selection (1-5): 1"))
+    return int(input("Enter menu selection (1-5):"))
 
 def main():
     # Load data files into lists
@@ -42,10 +42,10 @@ def main():
     print(dictionary[0:50])
     print(aliceWords[0:50])
 
-    input = printMainMenu()
-    while input != 5:
+    inp = printMainMenu()
+    while inp != 5:
         
-        match input:
+        match inp:
             case 1:
                 inputWord = input("Please enter a word: ")
                 print("Linear Search Starting...")
@@ -54,9 +54,17 @@ def main():
                     print(f"{inputWord} is NOT IN the dictionary.")
                 else:
                     print(f"{inputWord} is IN the dictionary at position {res}")
-
-
-        input = printMainMenu()
+            case 2:
+                inputWord = input("Please enter a word: ")
+                print("Linear Search Starting...")
+                res = binarySearch(dictionary, inputWord)
+                if res == -1:
+                    print(f"{inputWord} is NOT IN the dictionary.")
+                else:
+                    print(f"{inputWord} is IN the dictionary at position {res}")
+            case 3:
+                print("AAAAA")
+        inp = printMainMenu()
 
 # end main()
 
